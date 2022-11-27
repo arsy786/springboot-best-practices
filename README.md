@@ -62,14 +62,10 @@ In this tutorial, I will guide some best practices and a few tips which you can 
 
 ## Notable Mentions
 
-1- Create application.yml for each environment
-Ex: application-dev.yml - application-staging.yml ...
-
-2- using library to map DTO like MapStruct...
-
-3- using soft delete
-
-4- using  environment variables to avoid hard-coding
+1. Create application.yml for each environment. For example: application-dev.yml, application-prod.yml ...
+2. Use a library to map DTOs, such as MapStruct. 
+3. Use soft delete. 
+4. Use environment variables to avoid hard-coding.
 
 ## 1. Proper packaging style
 - You can structure your application with meaningful packaging.
@@ -120,6 +116,8 @@ For example:
 
 *For code implementation example(s) check:*
 [ProductController.java](https://github.com/arsy786/springboot-best-practices/blob/master/src/main/java/com/javatechie/controller/ProductController.java)
+or
+[TeamController.java](https://github.com/arsy786/football-club-management-system/blob/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/controller/TeamController.java)
 
 ## 6. Use Services for business logic
 - The complete business logic goes here with validations, caching…etc.
@@ -128,7 +126,8 @@ For example:
 
 *For code implementation example(s) check:*
 [ProductService.java](https://github.com/arsy786/springboot-best-practices/blob/master/src/main/java/com/javatechie/service/ProductService.java)
-
+or
+[TeamService.java](https://github.com/arsy786/football-club-management-system/blob/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/service/TeamService.java)
 
 ## 7. Use constructor injection with Lombok
 - When we talk about dependency injection, there are two types.
@@ -142,7 +141,6 @@ For example:
 or
 [ProductService.java](https://github.com/arsy786/springboot-best-practices/blob/master/src/main/java/com/javatechie/service/ProductService.java)
 
-
 ## 8. Use Slf4j logging
 - Logging is very important.
 - If a problem occurs while your application is in production, logging is the only way to find out the root cause.
@@ -155,59 +153,64 @@ or
 
 *For code implementation example(s) check:*
 [ProductController.java](https://github.com/arsy786/springboot-best-practices/blob/master/src/main/java/com/javatechie/controller/ProductController.java)
-or
+and
 [ProductService.java](https://github.com/arsy786/springboot-best-practices/blob/master/src/main/java/com/javatechie/service/ProductService.java)
 or
+[TeamController.java](https://github.com/arsy786/football-club-management-system/blob/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/controller/TeamController.java)
+and
+[TeamService.java](https://github.com/arsy786/football-club-management-system/blob/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/service/TeamService.java)
+and
 [ApiExceptionHandler.java](https://github.com/arsy786/football-club-management-system/blob/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/exception/ApiExceptionHandler.java)
-
 
 ## 9. Use meaningful words for classes, methods, variables and other attributes
 - Always use proper meaningful and searchable naming conventions with proper case.
-- Usually, we use nouns or short phrases when declaring classes, variables, and constants. Ex: String firstName, const isValid
-- You can use verbs and short phrases with adjectives for functions and methods. Ex: readFile(), sendData()
-- Avoid using abbreviating variable names and intention revealing names. Ex: int i; String getExUsr;
+- Usually, we use nouns or short phrases when declaring classes, variables, and constants. For example: String firstName, const isValid
+- You can use verbs and short phrases with adjectives for functions and methods. For example: readFile(), sendData()
+- Avoid using abbreviating variable names and intention revealing names. For example: int i; String getExUsr;
 - If you use this meaningfully, declaration comment lines can be reduced. Since it has meaningful names, a fresh developer can easily understand by reading the code.
 
 ![cases](cases.webp)
 
-- There are many cases, as shown above.
-- But we need to identify which case is dedicated to which variable.
+- There are many different case styles we can adopt, as shown above.
+- But, we must identify which case is dedicated to which variable and be consistent with it. Most common standard:
 
-Most common standard:
-
-classes - PascalCase
+Classes = PascalCase
 <br>
-methods & variables - camelCase
+Methods & Variables = camelCase
 <br>
-constants - SCREAMING_SNAKE_CASE
+Constants = SCREAMING_SNAKE_CASE
 <br>
-DB-related fields - snake_case
+DB-related fields = snake_case
 
 ## 10. Bean Validation
-- Apply to DTO's
+- Apply to DTOs.
 - Use annotations such as @NotBlank, @Min, @Max, and add messages to each.
-- Use @Valid in Controller method attributes for requests to validate against the DTO's.
+- Use @Valid in Controller POST request method attributes to validate against the DTO bean validation annotations.
 
-NOTE: Use the annotations from javax.persistence.* for adding constraints in the Model layer.
+NOTE: Use the annotations from javax.persistence.* for adding constraints in the Model/Entity layer.
 <br>
 NOTE: Use the annotations from javax.validation.constraints.* for adding validation in the DTO layer.
 
 *For code implementation example(s) check:*
 [Team.java](https://github.com/arsy786/football-club-management-system/blob/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/model/Team.java)
+and
+[TeamDTO.java](https://github.com/arsy786/football-club-management-system/blob/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/dto/TeamDTO.java)
 or
 [ProductRequestDTO.java](https://github.com/arsy786/springboot-best-practices/blob/master/src/main/java/com/javatechie/dto/ProductRequestDTO.java)
-
 
 ## 11. Custom Exception Handling
 - This is very important when working with large enterprise-level applications.
 - Apart from the general exceptions, we may have some scenarios to identify some specific error cases.
-- Exception adviser can be created with @ControllerAdvice and we can create separate exceptions with meaningful details.
+- Exception adviser can be created with @ControllerAdvice, and we can create separate exceptions with meaningful details.
 - It will make it much easier to identify and debug errors in the future.
 
 *For code implementation example(s) check:*
-[exception folder 1](https://github.com/arsy786/football-club-management-system/tree/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/exception)
+[FCMS Exception Folder](https://github.com/arsy786/football-club-management-system/tree/master/src/main/java/dev/arsalaan/footballclubmanagementsystem/exception)
 or
-[exception folder 2](https://github.com/raviyasas/springboot-exceptions-demo/tree/master/src/main/java/com/app/exception)
+[This Exception Folder](https://github.com/arsy786/springboot-best-practices/tree/master/src/main/java/com/javatechie/handler) with
+[This Handler Folder](https://github.com/arsy786/springboot-best-practices/tree/master/src/main/java/com/javatechie/exception)
+or
+[Different Project Exception Folder](https://github.com/raviyasas/springboot-exceptions-demo/tree/master/src/main/java/com/app/exception)
 
 ## 12. Use custom response object
 - A custom response object can be used to return an object with some specific data with the requirements like HTTP status code, API code, message, etc.
@@ -215,10 +218,16 @@ or
 *For code implementation example(s) check:*
 [APIResponse.java](https://github.com/arsy786/springboot-best-practices/blob/master/src/main/java/com/javatechie/dto/APIResponse.java)
 
-
 ## 13. Use design patterns
-- Know when and where to use which pattern.
-- Builder and Singleton most used in SB applications.
+- Know **when** and **where** to use _which_ pattern.
+- Builder and Singleton most used in Spring Boot applications.
+
+<ins>Supporting Material
+
+[Using Lombok’s @Builder Annotation (Baeldung/EricGoebelbecker)](https://www.baeldung.com/lombok-builder)
+<br>
+[Design Patterns in the Spring Framework (Baeldung/JustinAlbano)](https://www.baeldung.com/spring-framework-design-patterns)
+<br>
 
 ## 14. Use yml instead of properties
 - Less repetition/duplication of the key prefix.
@@ -230,18 +239,23 @@ or
 
 ## 15. Encrypt or externalize sensitive info
 - Encrypt ALL passwords (never store as plain text).
-- Move outside of codebase (Vault, git server, cloud config, etc.)
+- Move this information outside the codebase (Vault, git server, cloud config, etc.)
+
+<ins>Supporting Material
+
+[Bcrypt Password Encryption with Spring Boot (Youtube/ProgrammingWithBasar)](https://www.youtube.com/watch?v=_RaVRqfpjZo)
+<br>
 
 ## 16. Write E2E Unit Test cases with coverage
-- This is done to validate all features and API's are working as expected.
-- Mocking Repository, we do not want the test data to save to the DB, so mocking behaviour helps us bypass DB interactions.
-- Test ALL endpoints (or methods).
-- Test positive AND negative scenarios for each endpoint.
-- Running the code with Coverage allows us to indetify which parts of the code have been tested or not.
+- This is done to validate that all features and API's are working as expected.
+- Why do we mock Repository/Service? We do not want the test data to save to the DB, so mocking the behaviour of methods helps us bypass DB interactions.
+- Test ALL endpoints/methods.
+- Test positive AND negative scenarios for each endpoint. Include Edge Cases!
+- Running the code with Coverage allows us to identify which parts of the code have or have not been tested.
 - Aim for 100% coverage!
 
 *For code implementation example(s) check:*
-[footballclubmanagementsystem tests](https://github.com/arsy786/football-club-management-system/tree/master/src/test/java/dev/arsalaan/footballclubmanagementsystem)
+[All FCMS Tests](https://github.com/arsy786/football-club-management-system/tree/master/src/test/java/dev/arsalaan/footballclubmanagementsystem)
 or
 [TeamMockMvcIT.java](https://github.com/arsy786/football-club-management-system/blob/master/src/test/java/dev/arsalaan/footballclubmanagementsystem/TeamMockMvcIT.java)
 or
@@ -252,7 +266,7 @@ or
 - Can use:
 
 ``` java
-Optional.ofNullable(object)
+Optional.ofNullable(object);
 
 // or
 
@@ -267,15 +281,34 @@ productRepository.findById(productId).orElseThrow(
 
 ``` java
 // pre-Java8
+Map<String, List<ProductResponseDTO>> productsMap = new HashMap<>();
+        List<String> productTypes = Arrays.asList("Electronics", "fashion", "Kitchen");//1 st iteration from DB
 
+        List<Product> productList = productRepository.findAll(); //2 nd
+
+        for (String type : productTypes) {
+            List<ProductResponseDTO> productResponseDTOList = new ArrayList<>();
+            for (Product product : productList) {
+                if (type.equals(product.getProductType())) {
+                    productResponseDTOList.add(ValueMapper.convertToDTO(product));
+                }
+                productsMap.put(type, productResponseDTOList);
+            }
+        }
+
+        return productsMap;
+        
 // post-Java 8
-
+Map<String, List<ProductResponseDTO>> productsMap = productRepository.findAll().stream()
+                            .map(ValueMapper::convertToDTO)
+                            .filter(productResponseDTO -> productResponseDTO.getProductType() != null)
+                            .collect(Collectors.groupingBy(ProductResponseDTO::getProductType));
+return productsMap;
 ```
 - Functional programming is better for performance and readability.
 - Use interface type instead of the implementation.
 - Use isEmpty() over size() for better readability.
 - Do not return null values, you can return an empty collection.
-
 
 ## 19. Use Caching
 - Caching is another important factor when talking about application performance.
@@ -284,22 +317,40 @@ productRepository.findById(productId).orElseThrow(
 - If you are not satisfied with default caching, you can use Redis, Hazelcast, or any other distributed caching implementations.
 - Redis and Hazelcast are in-memory caching methods. You also can use database cache implementations as well.
 
+<ins>Supporting Material
+
+[Spring Data Redis as Cache (Youtube/JavaTechie)](https://www.youtube.com/watch?v=vpe4aDu5ixI)
+<br>
+[Spring Boot Caching With Real Life Example (Youtube/GreenLearner)](https://www.youtube.com/watch?v=Yf-zH5Q9FQM)
+<br>
+
 ## 20. Use Pagination
 - This is useful if you have lots of records, it allows us to view the data more easily.
 - This will improve the performance of the application.
 - If you’re using Spring Data JPA, the PagingAndSortingRepository makes using pagination very easy and with little effort.
 
+<ins>Supporting Material
+
+[Pagination and Sorting With Spring Data JPA (Youtube/JavaTechie)](https://www.youtube.com/watch?v=Wa0GQwWwzJE)
+<br>
+[Spring Data JPA Pagination (Youtube/DanVega)](https://www.youtube.com/watch?v=oq-c3D67WqM)
+
+
 ## 21. Remove unnecessary codes, variables, methods
 - Unused variable declarations will acquire some memory.
 - Remove unused methods, classes, imports, vars etc. because it will impact the performance of the application.
-- Try to avoid nested loops. You can use maps instead.
+- Try to avoid nested loops. You can use Java 8 Streams instead.
+
+<ins>Supporting Material
+
+[Functional Programming with Java Streams API (Youtube/Amigoscode)](https://www.youtube.com/watch?v=f5j1TaJlc0w)
 
 ## 22. Use Comments
 - Commenting is a good practice unless you abuse it.
 - DO NOT comment on everything. Instead, you can write descriptive code using meaningful words for classes, functions, methods, variables…etc.
 - Remove commented codes, misleading comments, and story-type comments.
 - You can use comments for warnings and explain something difficult to understand at first sight.
-- Example:
+- Example of comment explaining a method:
 
 ``` java
 /** this method will fetch product from DB by ID
@@ -312,8 +363,7 @@ productRepository.findById(productId).orElseThrow(
 - Have a consistent and uniform way of formatting your code.
 - Use spaces and/or returns in an ordered and readable manner.
 - CMD+OPTION+L on highlighted code in IDE for code reformatting!
-- Can see below, two different ways of formatting the same code. To avoid discrepancies, the team should have a common coding format.
-
+- Can see below, two different ways of formatting the same code. To avoid discrepancies, you or your team should have a common coding format.
 
 ![code-formatting](code-formatting.webp)
 
@@ -321,6 +371,5 @@ productRepository.findById(productId).orElseThrow(
 - This is very useful for identifying small bugs and best practices to avoid unnecessary bugs and code quality issues.
 - You can install the plugin into your favorite IDE.
 
-
 ## 25. Be Simple!
-- Always try to write readable, understanble and simple code!
+- Always try to write readable, understandable and simple code!
