@@ -21,11 +21,8 @@ import java.util.Map;
 @Slf4j
 public class ProductController {
 
-
     public static final String SUCCESS = "Success";
     private ProductService productService;
-
-
 
     @PostMapping
     public ResponseEntity<APIResponse> createNewProduct(@RequestBody @Valid ProductRequestDTO productRequestDTO) {
@@ -33,7 +30,7 @@ public class ProductController {
         log.info("ProductController::createNewProduct request body {}", ValueMapper.jsonAsString(productRequestDTO));
 
         ProductResponseDTO productResponseDTO = productService.createNewProduct(productRequestDTO);
-        //Builder Design pattern
+        // Builder Design pattern
 
         APIResponse<ProductResponseDTO> responseDTO = APIResponse
                 .<ProductResponseDTO>builder()
@@ -50,7 +47,7 @@ public class ProductController {
     public ResponseEntity<APIResponse> getProducts() {
 
         List<ProductResponseDTO> products = productService.getProducts();
-        //Builder Design pattern (to avoid complex object creation headache)
+        // Builder Design pattern (to avoid complex object creation headache)
         APIResponse<List<ProductResponseDTO>> responseDTO = APIResponse
                 .<List<ProductResponseDTO>>builder()
                 .status(SUCCESS)
@@ -74,7 +71,7 @@ public class ProductController {
                 .results(productResponseDTO)
                 .build();
 
-        log.info("ProductController::getProduct by id  {} response {}", productId,ValueMapper
+        log.info("ProductController::getProduct by id  {} response {}", productId, ValueMapper
                 .jsonAsString(productResponseDTO));
 
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
@@ -94,6 +91,5 @@ public class ProductController {
 
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
-
 
 }
