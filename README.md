@@ -5,6 +5,63 @@ and [Spring Boot Best Practices for Developers (Medium/RaviYasas)](https://mediu
 
 This is a guide for best practices and includes tips which you can use to improve your Spring Boot application and make it more efficient.
 
+## Table of Contents
+
+[Getting Started](#getting-started)
+<br>
+[0. Notable Mentions](#0-notable-mentions)
+<br>
+[1. Proper packaging style](#1-proper-packaging-style)
+<br>
+[2. Use Spring Boot starters](#2-use-spring-boot-starters)
+<br>
+[3. Use proper versions of the dependencies](#3-use-proper-versions-of-the-dependencies)
+<br>
+[4. Use Lombok](#4-use-lombok)
+<br>
+[5. Use Controllers only for routing](#5-use-controllers-only-for-routing)
+<br>
+[6. Use Services for business logic](#6-use-services-for-business-logic)
+<br>
+[7. Use constructor injection with Lombok](#7-use-constructor-injection-with-lombok)
+<br>
+[8. Use Slf4j logging](#8-use-slf4j-logging)
+<br>
+[9. Use meaningful words for classes, methods, variables and other attributes](#9-use-meaningful-words-for-classes-methods-variables-and-other-attributes)
+<br>
+[10. Bean Validation](#10-bean-validation)
+<br>
+[11. Custom Exception Handling](#11-custom-exception-handling)
+<br>
+[12. Use custom response object](#12-use-custom-response-object)
+<br>
+[13. Use design patterns](#13-use-design-patterns)
+<br>
+[14. Use yml instead of properties](#14-use-yml-instead-of-properties)
+<br>
+[15. Encrypt or externalize sensitive info](#15-encrypt-or-externalize-sensitive-info)
+<br>
+[16. Write E2E Unit Test cases with coverage](#16-write-e2e-unit-test-cases-with-coverage)
+<br>
+[17. Avoid NPE by using Optional](#17-avoid-npe-by-using-optional)
+<br>
+[18. Use best practices for the collection framework](#18-use-best-practices-for-the-collection-framework)
+<br>
+[19. Use Caching](#19-use-caching)
+<br>
+[20. Use Pagination](#20-use-pagination)
+<br>
+[21. Remove unnecessary codes, variables, methods](#21-remove-unnecessary-codes-variables-methods)
+<br>
+[22. Use Comments](#22-use-comments)
+<br>
+[23. Use a common code formatting style](#23-use-a-common-code-formatting-style)
+<br>
+[24. Use SonarLint](#24-use-sonarlint)
+<br>
+[25. Be Simple!](#25-be-simple)
+<br>
+
 ## Getting Started
 
 ### Prerequisites
@@ -60,62 +117,7 @@ spring:
 
 **NOTE:** To use a different SQL database, include the appropriate database driver in your `pom.xml` and update the `application.yml` config accordingly.
 
-## Table of Contents
-
-[Notable Mentions](#notable-mentions)
-<br>
-[1. Proper packaging style](#1-proper-packaging-style)
-<br>
-[2. Use Spring Boot starters](#2-use-spring-boot-starters)
-<br>
-[3. Use proper versions of the dependencies](#3-use-proper-versions-of-the-dependencies)
-<br>
-[4. Use Lombok](#4-use-lombok)
-<br>
-[5. Use Controllers only for routing](#5-use-controllers-only-for-routing)
-<br>
-[6. Use Services for business logic](#6-use-services-for-business-logic)
-<br>
-[7. Use constructor injection with Lombok](#7-use-constructor-injection-with-lombok)
-<br>
-[8. Use Slf4j logging](#8-use-slf4j-logging)
-<br>
-[9. Use meaningful words for classes, methods, variables and other attributes](#9-use-meaningful-words-for-classes-methods-variables-and-other-attributes)
-<br>
-[10. Bean Validation](#10-bean-validation)
-<br>
-[11. Custom Exception Handling](#11-custom-exception-handling)
-<br>
-[12. Use custom response object](#12-use-custom-response-object)
-<br>
-[13. Use design patterns](#13-use-design-patterns)
-<br>
-[14. Use yml instead of properties](#14-use-yml-instead-of-properties)
-<br>
-[15. Encrypt or externalize sensitive info](#15-encrypt-or-externalize-sensitive-info)
-<br>
-[16. Write E2E Unit Test cases with coverage](#16-write-e2e-unit-test-cases-with-coverage)
-<br>
-[17. Avoid NPE by using Optional](#17-avoid-npe-by-using-optional)
-<br>
-[18. Use best practices for the collection framework](#18-use-best-practices-for-the-collection-framework)
-<br>
-[19. Use Caching](#19-use-caching)
-<br>
-[20. Use Pagination](#20-use-pagination)
-<br>
-[21. Remove unnecessary codes, variables, methods](#21-remove-unnecessary-codes-variables-methods)
-<br>
-[22. Use Comments](#22-use-comments)
-<br>
-[23. Use a common code formatting style](#23-use-a-common-code-formatting-style)
-<br>
-[24. Use SonarLint](#24-use-sonarlint)
-<br>
-[25. Be Simple!](#25-be-simple)
-<br>
-
-## Notable Mentions
+## 0. Notable Mentions
 
 1. Create application.yml for each environment. For example: application-dev.yml, application-prod.yml ...
 2. Use a library to map DTOs, such as MapStruct.
