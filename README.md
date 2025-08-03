@@ -2,7 +2,6 @@
 
 > ✅ **Part of the [Spring Boot Roadmap](https://github.com/arsy786/spring-boot-roadmap)** — a curated masterclass covering everything from Java basics to advanced Spring Boot projects and practices.
 
-This repository is a focused mini-series that dives into **best practices** when working with Spring Boot.  
 It is one of several interconnected repositories making up the broader [Spring Boot Roadmap](https://github.com/arsy786/spring-boot-roadmap), which provides a complete learning journey.
 
 ---
