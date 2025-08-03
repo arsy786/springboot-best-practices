@@ -1,4 +1,11 @@
-# springboot-best-practices
+# Spring Boot Best practices
+
+> ✅ **Part of the [Spring Boot Roadmap](https://github.com/arsy786/spring-boot-roadmap)** — a curated masterclass covering everything from Java basics to advanced Spring Boot projects and practices.
+
+This repository is a focused mini-series that dives into **best practices** when working with Spring Boot.  
+It is one of several interconnected repositories making up the broader [Spring Boot Roadmap](https://github.com/arsy786/spring-boot-roadmap), which provides a complete learning journey.
+
+---
 
 This tutorial is derived from: [Spring Boot Best Practices For Developers 👨‍💻 (Youtube/JavaTechie)](https://www.youtube.com/watch?v=NaEk2zAmDE8)
 and [Spring Boot Best Practices for Developers (Medium/RaviYasas)](https://medium.com/@raviyasas/spring-boot-best-practices-for-developers-3f3bdffa0090)
